@@ -1,12 +1,14 @@
-README.md
+UNITE/QIIME ITS reference OTUs
+------------------------------
 
-These reference sequence sets represent clustered versions (at 99% and 97% sequence similarity) of all fungal rDNA ITS sequences in the current UNITE+INSD (International Nucleotide Sequence Databases: NCBI, EMBL, DDBJ) release of circa 300,000 sequences (http://unite.ut.ee/repository.php). The taxonomy mapping files provided here were created from the Index Fungorum ranked classification schema provided by UNITE in association with each sequence in their database.
+These reference sequence sets represent clustered versions (at 99% and 97% sequence similarity) of all fungal rDNA ITS sequences in the current UNITE+INSD (International Nucleotide Sequence Databases: NCBI, EMBL, DDBJ) release of circa 300,000 sequences (http://unite.ut.ee/repository.php ; filename: UNITE_public_24.09.12.fasta). The taxonomy mapping files provided here were created from the Index Fungorum ranked classification schema provided by UNITE in association with each sequence in their database. These files have been designed to facilitate use with [QIIME](http://www.qiime.org).
 
 Efforts have been made by UNITE to improve the taxonomic information associated with some of the sequences in their database.  The QIIME reference sequence sets linked here have not been subject to any other form of curation (manual or automated) and certainly include incorrectly identified sequences, chimeras, and other problematic sequences.
 
 **These fungal ITS reference sets are alpha versions.** Responsibility lies with the user to verify the accuracy of associated taxonomic information as well as quality of sequences in these datasets.  Improved fungal rDNA ITS reference sets based on the semi-curated centroids for sequence clusters in the UNITE Global Key Annotations module will soon be available here.
 
-ACKNOWLEDGEMENTS
+Acknowledgements
+----------------
 
 The creation of these reference sets is the direct result of a Fungal ITS Workshop held on 19–20 October, 2012 in Boulder, Colorado, USA.  The workshop would not have been possible without the intellectual and financial support of Paula Olsiewski and the Alfred P. Sloan Foundation.  We thank Jason Stajich, for organizing the meeting, as well as all the workshop participants for their valuable contributions.  We specially acknowledge Scott Bates, Greg Caporaso, Noah Fierer, Rob Knight, Jonathan Leff, Daniel McDonald, Henrik Nilsson, Jai Ram Rideout, and Lee Taylor for their expertise, support, and/or advise in constructing the reference sets.
 
@@ -22,20 +24,25 @@ Technical notes were compiled by Jon Leff, Jai Ram Rideout and Greg Caporaso.
 
 All commands were run using [QIIME](https://github.com/qiime/qiime) 1.5.0-dev (git commit hash  1ed0a4f3cea5e6da04896ff9e5ac337d40f3358) and the [nested_reference_otu](https://github.com/qiime/nested_reference_otus) workflow (git commit hash 821a98df6773ea4e4d209af20b9a8cf34d00324e).
 
-All input files were downloaded November of 2012, and were identified as the unite_ref_seqs_21nov2011 database on the UNITE website. The data in this directory was compiled and published on 21 Nov 2012.
+All input files were downloaded November of 2012, and were identified as the UNITE_public_24.09.12.fasta database on the UNITE website. The data in this directory was compiled and published on 27 Nov 2012.
 
 Generating the current reference OTUs
 -------------------------------------
 
+```
 export WORKING_DIR=/Users/leffj/ITS_ref/UNITE/UNITE_public_240912/
 
 sort_seqs.py -i
-$WORKING_DIR/UNITE-QIIME_sequence_set_24_Sep_2012.fasta -t $WORKING_DIR/UNITE-QIIME_taxonomy_mapping_24_Sep_2012.txt -o $WORKING_DIR/UNITE-QIIME_sequence_set_24_Sep_2012_sorted.fasta
+$WORKING_DIR/UNITE_public_24.09.12.fasta -t $WORKING_DIR/UNITE_public_taxonomy_mapping_24.09.12.txt -o $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta
 
 nested_reference_workflow.py -i
-$WORKING_DIR/UNITE-QIIME_sequence_set_24_Sep_2012_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout/ -r 20121105 -s 97
+$WORKING_DIR/UNITE_public_24.09.12_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout/ -r 20121105 -s 97
 
-nested_reference_workflow.py -i $WORKING_DIR/UNITE-QIIME_sequence_set_24_Sep_2012_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout99/ -r 20121105 -s 99
+nested_reference_workflow.py -i $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout99/ -r 20121105 -s 99
+```
+
+The representative sequence files were subsequently renamed to ``97_otus.fasta`` and ``99_otus.fasta``, respectively.
+
 
 Filter the UNITE taxonomy to files containing only the 97% and 99% OTUs
 -----------------------------------------------------------------------
@@ -100,12 +107,8 @@ That's it! After this step you will have an OTU table.
 Citing this data
 ----------------
 
-If you use this dataset, please cite the following for:
-
-UNITE
+If you use this dataset, please cite the following to credit the QIIME and UNITE development groups:
 
 Abarenkov, Kessy; Nilsson, R. Henrik; Larsson, Karl-Henrik; Alexander, Ian J.; Eberhardt, Ursula; Erland, Susanne; Høiland, Klaus; Kjøller, Rasmus; Larsson, Ellen; Pennanen, Taina; Sen, Robin; Taylor, Andy F. S.; Tedersoo, Leho; Ursing, Björn M.; Vrålstad, Trude; Liimatainen, Kare; Peintner, Ursula; Kõljalg, Urmas (2010). The UNITE database for molecular identification of fungi - recent updates and future perspectives. New Phytologist, 186(2), 281-285.
-
-QIIME
 
 J Gregory Caporaso; Justin Kuczynski; Jesse Stombaugh; Kyle Bittinger; Frederic D Bushman; Elizabeth K Costello; Noah Fierer; Antonio Gonzalez Pena; Julia K Goodrich; Jeffrey I Gordon; Gavin A Huttley; Scott T Kelley; Dan Knights; Jeremy E Koenig; Ruth E Ley; Catherine A Lozupone; Daniel McDonald; Brian D Muegge; Meg Pirrung; Jens Reeder; Joel R Sevinsky; Peter J Turnbaugh; William A Walters; Jeremy Widmann; Tanya Yatsunenko; Jesse Zaneveld; Rob Knight. (2010). QIIME allows integration and analysis of high-throughput community sequencing data. Nature Methods 7: 335-336.
