@@ -10,7 +10,7 @@ Efforts have been made by UNITE to improve the taxonomic information associated 
 Acknowledgements
 ----------------
 
-The creation of these reference sets is the direct result of a Fungal ITS Workshop held on 19–20 October, 2012 in Boulder, Colorado, USA.  The workshop would not have been possible without the intellectual and financial support of Paula Olsiewski and the [Alfred P. Sloan Foundation](http://www.sloan.org/).  We thank Jason Stajich, for organizing the meeting, as well as all the workshop participants for their valuable contributions.  We specially acknowledge Scott Bates, Greg Caporaso, Noah Fierer, Rob Knight, Jonathan Leff, Daniel McDonald, Henrik Nilsson, Jai Ram Rideout, and Lee Taylor for their expertise, support, and/or advise in constructing the reference sets.
+The creation of these reference sets is the direct result of a Fungal ITS Workshop held on 19–20 October, 2012 in Boulder, Colorado, USA.  The workshop would not have been possible without the intellectual and financial support of Paula Olsiewski and the [Alfred P. Sloan Foundation](http://www.sloan.org/).  We thank Jason Stajich, for organizing the meeting, as well as all the workshop participants for their valuable contributions.  We specially acknowledge Scott Bates, Greg Caporaso, Noah Fierer, Rob Knight, Jonathan Leff, Daniel McDonald, Henrik Nilsson, Jai Ram Rideout, and Lee Taylor for their expertise, support, and/or advice in constructing the reference sets.
 
 Questions about these data should be directed to the [Qiime Forum](http://forum.qiime.org).
 
