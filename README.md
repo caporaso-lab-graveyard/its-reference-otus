@@ -10,21 +10,20 @@ Efforts have been made by UNITE to improve the taxonomic information associated 
 Acknowledgements
 ----------------
 
-The creation of these reference sets is the direct result of a Fungal ITS Workshop held on 19–20 October, 2012 in Boulder, Colorado, USA.  The workshop would not have been possible without the intellectual and financial support of Paula Olsiewski and the Alfred P. Sloan Foundation.  We thank Jason Stajich, for organizing the meeting, as well as all the workshop participants for their valuable contributions.  We specially acknowledge Scott Bates, Greg Caporaso, Noah Fierer, Rob Knight, Jonathan Leff, Daniel McDonald, Henrik Nilsson, Jai Ram Rideout, and Lee Taylor for their expertise, support, and/or advise in constructing the reference sets.
+The creation of these reference sets is the direct result of a Fungal ITS Workshop held on 19–20 October, 2012 in Boulder, Colorado, USA.  The workshop would not have been possible without the intellectual and financial support of Paula Olsiewski and the [Alfred P. Sloan Foundation](http://www.sloan.org/).  We thank Jason Stajich, for organizing the meeting, as well as all the workshop participants for their valuable contributions.  We specially acknowledge Scott Bates, Greg Caporaso, Noah Fierer, Rob Knight, Jonathan Leff, Daniel McDonald, Henrik Nilsson, Jai Ram Rideout, and Lee Taylor for their expertise, support, and/or advise in constructing the reference sets.
 
-Questions about these data should be directed to the Qiime Forum at http://forum.qiime.org.
+Questions about these data should be directed to the [Qiime Forum](http://forum.qiime.org).
 
-Find information on UNITE at http://unite.ut.ee/index.php and on QIIME at http://www.qiime.org. Source files can be obtained from http://unite.ut.ee/repository.php. 
-
+Find information on [UNITE here](http://unite.ut.ee/index.php) and on [QIIME here](http://www.qiime.org).
 
 Technical notes
 ---------------
 
 Technical notes were compiled by Jon Leff, Jai Ram Rideout and Greg Caporaso.
 
-All commands were run using [QIIME](https://github.com/qiime/qiime) 1.5.0-dev (git commit hash  1ed0a4f3cea5e6da04896ff9e5ac337d40f3358) and the [nested_reference_otu](https://github.com/qiime/nested_reference_otus) workflow (git commit hash 821a98df6773ea4e4d209af20b9a8cf34d00324e).
+All commands were run using [QIIME](https://github.com/qiime/qiime) 1.5.0-dev (git commit hash  ``1ed0a4f3cea5e6da04896ff9e5ac337d40f3358``) and the [nested_reference_otu](https://github.com/qiime/nested_reference_otus) workflow (git commit hash ``821a98df6773ea4e4d209af20b9a8cf34d00324e``).
 
-All input files were downloaded November of 2012, and were identified as the UNITE_public_24.09.12.fasta database on the UNITE website. The data in this directory was compiled and published on 27 Nov 2012.
+All input files were downloaded November of 2012, and were identified as the ``UNITE_public_24.09.12`` release on the UNITE website. The data in this directory was compiled and published on 27 Nov 2012.
 
 Generating the current reference OTUs
 -------------------------------------
@@ -32,11 +31,9 @@ Generating the current reference OTUs
 ```
 export WORKING_DIR=/Users/leffj/ITS_ref/UNITE/UNITE_public_240912/
 
-sort_seqs.py -i
-$WORKING_DIR/UNITE_public_24.09.12.fasta -t $WORKING_DIR/UNITE_public_taxonomy_mapping_24.09.12.txt -o $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta
+sort_seqs.py -i $WORKING_DIR/UNITE_public_24.09.12.fasta -t $WORKING_DIR/UNITE_public_taxonomy_mapping_24.09.12.txt -o $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta
 
-nested_reference_workflow.py -i
-$WORKING_DIR/UNITE_public_24.09.12_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout/ -r 20121105 -s 97
+nested_reference_workflow.py -i $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout/ -r 20121105 -s 97
 
 nested_reference_workflow.py -i $WORKING_DIR/UNITE_public_24.09.12_sorted.fasta -o /Users/leffj/ITS_ref/UNITE/NRWout99/ -r 20121105 -s 99
 ```
@@ -78,7 +75,7 @@ g.close()
 Using these reference OTUs to process ITS Data
 -------------------------------------------------
 
-Define a parameters file (``params.txt``) containing these values:
+Define a [parameters file](http://qiime.org/documentation/file_formats.html#qiime-parameters) (``params.txt``) containing these values:
 
 ```
 pick_otus:otu_picking_method    uclust_ref
@@ -92,7 +89,7 @@ assign_taxonomy_reference_seqs_fp	<path_to_its-reference-otus>/rep_set/97_otus.f
 assign_taxonomy_id_to_taxonomy_fp	<path_to_its-reference-otus>/taxonomy/97_taxonomy.txt
 ```
 
-Demultiplex sequences and apply QIIME's subsampled open-reference OTU picking protocol. The demultiplexing step shown here illustrates how to work with barcoded Illumina reads, but this protocol illustrates [how to demultiplex 454 data](http://qiime.org/tutorials/tutorial.html).
+Demultiplex sequences and apply [QIIME's subsampled open-reference OTU picking protocol](http://qiime.org/tutorials/open_reference_illumina_processing.html#subsampled-otu-picking-workflow-evaluation). The demultiplexing step shown here illustrates how to work with barcoded Illumina reads, but this protocol illustrates [how to demultiplex 454 data](http://qiime.org/tutorials/tutorial.html).
 
 ```
 export REFSEQS_FP=<path_to_its-reference-otus>/rep_set/97_otus.fasta
@@ -109,6 +106,8 @@ Citing this data
 
 If you use this dataset, please cite the following to credit the QIIME and UNITE development groups:
 
-Abarenkov, Kessy; Nilsson, R. Henrik; Larsson, Karl-Henrik; Alexander, Ian J.; Eberhardt, Ursula; Erland, Susanne; Høiland, Klaus; Kjøller, Rasmus; Larsson, Ellen; Pennanen, Taina; Sen, Robin; Taylor, Andy F. S.; Tedersoo, Leho; Ursing, Björn M.; Vrålstad, Trude; Liimatainen, Kare; Peintner, Ursula; Kõljalg, Urmas (2010). The UNITE database for molecular identification of fungi - recent updates and future perspectives. New Phytologist, 186(2), 281-285.
+The UNITE database for molecular identification of fungi - recent updates and future perspectives.
+Abarenkov, Kessy; Nilsson, R. Henrik; Larsson, Karl-Henrik; Alexander, Ian J.; Eberhardt, Ursula; Erland, Susanne; Høiland, Klaus; Kjøller, Rasmus; Larsson, Ellen; Pennanen, Taina; Sen, Robin; Taylor, Andy F. S.; Tedersoo, Leho; Ursing, Björn M.; Vrålstad, Trude; Liimatainen, Kare; Peintner, Ursula; Kõljalg, Urmas (2010). New Phytologist, 186(2), 281-285.
 
-J Gregory Caporaso; Justin Kuczynski; Jesse Stombaugh; Kyle Bittinger; Frederic D Bushman; Elizabeth K Costello; Noah Fierer; Antonio Gonzalez Pena; Julia K Goodrich; Jeffrey I Gordon; Gavin A Huttley; Scott T Kelley; Dan Knights; Jeremy E Koenig; Ruth E Ley; Catherine A Lozupone; Daniel McDonald; Brian D Muegge; Meg Pirrung; Jens Reeder; Joel R Sevinsky; Peter J Turnbaugh; William A Walters; Jeremy Widmann; Tanya Yatsunenko; Jesse Zaneveld; Rob Knight. (2010). QIIME allows integration and analysis of high-throughput community sequencing data. Nature Methods 7: 335-336.
+QIIME allows integration and analysis of high-throughput community sequencing data.
+J Gregory Caporaso; Justin Kuczynski; Jesse Stombaugh; Kyle Bittinger; Frederic D Bushman; Elizabeth K Costello; Noah Fierer; Antonio Gonzalez Pena; Julia K Goodrich; Jeffrey I Gordon; Gavin A Huttley; Scott T Kelley; Dan Knights; Jeremy E Koenig; Ruth E Ley; Catherine A Lozupone; Daniel McDonald; Brian D Muegge; Meg Pirrung; Jens Reeder; Joel R Sevinsky; Peter J Turnbaugh; William A Walters; Jeremy Widmann; Tanya Yatsunenko; Jesse Zaneveld; Rob Knight. (2010). Nature Methods 7: 335-336.
