@@ -1,3 +1,5 @@
+**The data in this repository is outdated. Please instead refer to the UNITE database. You can find QIIME-compatible builds of the reference database linked from the [QIIME Resources Page](http://resources.qiime.org).**
+
 UNITE/QIIME ITS reference OTUs
 ------------------------------
 
